@@ -8,15 +8,17 @@ use Illuminate\Http\Request;
 class MedecinController extends Controller
 {
     
-    public function display()
+    public function show($id)
     {
-         
+        return view('medecin', [
+            'medecin' => medecin::findOrFail($id)
+        ]);
     }
 
 
     public function create()
     {
-        return view('medecin.create');
+        return view('medecinform');
     }
 
 
@@ -24,9 +26,9 @@ class MedecinController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nom' => 'bail|required|nom',
-            'prenom' => 'bail|required|prenom',
-            'specialite'=>'bail|required|specialité'
+            'nom' => 'required|max:255',
+            'prenom' => 'required|max:255',
+            'specialite'=>'required|max:255'
         ]);        
 
         $medecin = new \App\Models\medecins;

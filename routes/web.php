@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MedecinController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,8 +21,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/reservation', function () {return view('reservation');});
 
 Route::get('/medecinform', function () {return view('medecinform');});
-Route::get('medecin', [medecinController::class, 'create'])->name('medecin.create');
-Route::post('medecin', [medecinController::class, 'store'])->name('medecin.store');
+Route::get('/medecinform', [MedecinController::class, 'create'])->name('medecin.create');
+Route::post('/medecinform', [MedecinController::class, 'store'])->name('medecin.store');
+Route::get('/medecin/{id}', [MedecinController::class, 'show']);
 
 
 Auth::routes();

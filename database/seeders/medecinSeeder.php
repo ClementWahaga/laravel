@@ -18,9 +18,9 @@ class medecinSeeder extends Seeder
     {
         DB::table('medecin')->insert(
             [
-                'nom' => 'House',
-                'prenom'=>'Gregorie',
-                'specialite' =>'cardiologue',
+                'nom' => 'Lory',
+                'prenom'=>'Olga',
+                'specialite' =>'dentiste',
 
             ]
 

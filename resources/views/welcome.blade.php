@@ -51,25 +51,7 @@
 
 
 
-            <table id="books" class="table table-bordered gridview">
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>specialités</th>
-                        
-                    </tr>
-                </thead> 
-                <tbody>
-                    @foreach($medecin as $data)
-                    <tr>
-                        <td> {{$data['nom']}} </td>
-                        <td> {{$data['prenom']}} </td>
-                        <td> {{$data['specialite']}} </td>
-                    </tr>
-                    @endforeach
-                </tbody>          
-            </table>
+           
         </div>    
                
     </body>
