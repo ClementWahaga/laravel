@@ -43,3 +43,4 @@ class Reservation extends Migration
         Schema::drop('reservation');
     }
 }
+ 
