@@ -23,7 +23,7 @@ Route::get('/reservation', function () {return view('reservation');});
 Route::get('/medecinform', function () {return view('medecinform');});
 Route::get('/medecinform', [MedecinController::class, 'create'])->name('medecin.create');
 Route::post('/medecinform', [MedecinController::class, 'store'])->name('medecin.store');
-Route::get('/medecin/{id}', [MedecinController::class, 'show']);
+Route::get('/medecin', [MedecinController::class, 'show']);
 
 
 Auth::routes();

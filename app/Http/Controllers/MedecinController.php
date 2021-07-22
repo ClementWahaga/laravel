@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\medecins;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
+use Medecin;
 
 class MedecinController extends Controller
 {
     
-    public function show($id)
+    public function show()
     {
-        return view('medecin', [
-            'medecin' => medecin::findOrFail($id)
-        ]);
+        $medecin = DB::table('medecin')->get();
+        return view('medecin')->with(compact('medecin'));
     }
 
 
@@ -41,3 +42,4 @@ class MedecinController extends Controller
 
     }
 }
+ 
