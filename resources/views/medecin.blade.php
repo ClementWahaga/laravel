@@ -16,34 +16,44 @@
 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#change_password">+ medecin</button>
 
 
+<div class=" mx-5  mt-4"style="width: 100px;"> 
+    <div  class="card" style ="width: 100rem;">
+            
+        <table class="table table-striped card-header">
+            <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">prenom</th>
+                        <th scope="col">specialité</th>
+                    </tr>
+            </thead>
+            <tbody >
+                @foreach($medecin as $data)
+                    <tr>
+                        <th>{{ $data->id }}</th>
+                        <th>{{ $data->nom }}</th>
+                        <th>{{ $data->prenom }}</th>
+                        <th>{{ $data->specialite }}</th>
+                        <th class="actions">
+                            <a href="#" class="edit btn btn-primary my-3  btn-lg">modifier</a>
+                            <form action="{{ route('medecin.destroy') }}" method="post"
+                                onsubmit="return confirm('areYouSure')" style="display: inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" rel="tooltip" class="btn btn-danger">
+                                <i class="material-icons">supprimer</i>
+                                </button>
+                            </form>
+                        
+                        </th> 
+                    </tr>
+                @endforeach               
+            </tbody>
+        </table>
+    </div>
+</div>
 
-<div class="card" style="width: 18rem;">
-           
-    <table class="table table-striped">
-        <thead>
-                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">prenom</th>
-                    <th scope="col">specialité</th>
-                </tr>
-        </thead>
-        <tbody >
-            @foreach($medecin as $data)
-                <tr>
-                    <th>{{ $data->id }}</th>
-                    <th>{{ $data->nom }}</th>
-                    <th>{{ $data->prenom }}</th>
-                    <th>{{ $data->specialite }}</th>
-                    <th class="actions">
-                        <a href="#" class="edit btn btn-primary my-3  btn-lg">modifier</a>
-                        <a href="#" class="destroy btn btn-danger my-3 btn-lg">supprimer</a>
-                    </th> 
-	            </tr>
-            @endforeach               
-        </tbody>
-    </table>
-</div class="card">
 
 <div class="modal fade" id="change_password" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
             <div class="modal-dialog" role="document">

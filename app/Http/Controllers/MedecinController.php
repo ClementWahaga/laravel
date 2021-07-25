@@ -19,7 +19,7 @@ class MedecinController extends Controller
 
     public function create()
     {
-        return view('medecinform');
+        return view('medecin');
     }
 
 
@@ -40,6 +40,13 @@ class MedecinController extends Controller
 
         return "C'est bien enregistré !";
 
+    }
+
+    public function destroy(medecins $medecin)
+    {
+        $medecin = DB::table('medecin')->get(id)->delete();
+
+        return redirect()->route('medecin');
     }
 }
  

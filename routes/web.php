@@ -19,11 +19,11 @@ use App\Http\Controllers\MedecinController;
 Route::get('/', function () {return view('welcome');});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/reservation', function () {return view('reservation');});
-
 Route::get('/medecinform', function () {return view('medecinform');});
 Route::get('/medecinform', [MedecinController::class, 'create'])->name('medecin.create');
-Route::post('/medecinform', [MedecinController::class, 'store'])->name('medecin.store');
-Route::get('/medecin', [MedecinController::class, 'show']);
+Route::post('/medecin', [MedecinController::class, 'store'])->name('medecin.store');
+Route::get('/medecin', [MedecinController::class, 'show'])->name('medecin.show');
+Route::delete('/medecin', [MedecinController::class, 'destroy'])->name('medecin.destroy');
 
 
 Auth::routes();
